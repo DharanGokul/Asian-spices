@@ -1,0 +1,101 @@
+@media screen and (max-width: 1360px) {
+  .nav-link {
+    font: 500 var(--text14) var(--font);
+  }
+  p.section-description {
+    line-height: 22px;
+  }
+  .quality-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .nav-link {
+    font: 500 var(--text14) var(--font);
+    padding: 4px 8px;
+  }
+  .product-grid.seed-spices img {
+    max-height: 182px;
+    min-height: 182px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .product-grid.seed-spices img {
+    max-height: 182px;
+    min-height: 182px;
+  }
+  .product-grid-template,
+  .quality-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  .nav-link {
+    font: 500 var(--text12) var(--font);
+    padding: 4px 6px;
+    margin-right: 2px;
+  }
+  .logo-image {
+    max-height: 48px;
+    max-width: 48px;
+  }
+  .site-title {
+    font: 600 var(--text16) var(--font);
+    text-align: center;
+  }
+  h2.section-title {
+    font: 600 var(--text24) var(--font);
+  }
+  .quick-links li {
+    font: 400 var(--text12) var(--font);
+    text-align: center;
+  }
+  .hero-content h1.display-4 {
+    font: 600 var(--text24) var(--font);
+  }
+  footer h5,
+  .hero-content h1.display-4,
+  footer p {
+    text-align: center;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+  .hero-content .row {
+    justify-content: center;
+  }
+  .hero-content p {
+    text-align: center;
+  }
+  .btn-white,
+  .view-product-link,
+  .btn-outline-white {
+    font: 500 var(--text14) var(--font);
+    padding: 8px 16px;
+    margin-bottom: 10px;
+  }
+  .section-description {
+    font: 400 var(--text14) var(--font);
+    text-align: center;
+  }
+  .section-title {
+    font: 600 var(--text20) var(--font);
+    text-align: center;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .hero-section {
+    min-height: 360px;
+  }
+  .product-grid-template,
+  .quality-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 360px) {
+  .product-grid-template,
+  .quality-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

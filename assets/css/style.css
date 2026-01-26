@@ -502,6 +502,8 @@ footer p {
   height: 3px;
   background-color: var(--menu-text-color);
   border-radius: 2px;
+  display: inline-block;
+  transition: all 0.5s ease-in-out;
 }
 .hamburger.close .bar:nth-child(2){
   opacity: 0;

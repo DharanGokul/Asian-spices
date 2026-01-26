@@ -340,7 +340,7 @@ footer p {
   margin: 0 auto;
   border: 2px dashed #d1d5dc;
   padding: 50px;
-  background: #f9fafb;
+  background: #f3f3f3;
   border-radius: 15px;
 }
 .btn-primary{
@@ -419,4 +419,96 @@ footer p {
 .info-section h4{
   font: 600 var(--text20) var(--font);
   color: var(--secondary-color);
+}
+.newsroom-section .date{
+  color: #6a7282;
+  font: 400 var(--text14) var(--font);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.newsroom-section .badge{
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  font: 400 var(--text14) var(--font);
+  padding: 4px 8px;
+  border-radius: 15px;
+  margin-left: 10px;
+}
+.newsroom-section h4{
+  color: var(--dark);
+  font: 600 var(--text20) var(--font);
+  text-decoration: none;
+}
+.newsroom-section a, .newsroom-section a > *{
+  text-decoration: none;
+}
+.newsroom-section p{
+  color: #4a5565;
+  font: 400 var(--text16) var(--font);
+}
+.post-section h4{
+  font: 600 var(--text24) var(--font);
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+.post-section p{
+  color: #4a5565;
+  font: 400 var(--text16) var(--font);
+  line-height: 24px;
+}
+.post-section .date{
+  font: 400 var(--text14) var(--font);
+  color: #6a7282;
+}
+.post-section .card-header{
+  min-height: 180px;
+}
+.btn-linkedin{
+  background-color: #0077b5;
+  color: var(--white);
+  padding: 12px 24px;
+}
+.btn-linkedin:hover, .btn-linkedin:focus, .btn-linkedin:active{
+  background-color: #005582;
+  color: var(--white);
+}
+.btn-facebook{
+  background-color: #1877f2;
+  color: var(--white);
+  padding: 12px 24px;
+}
+.btn-facebook:hover, .btn-facebook:focus, .btn-facebook:active{
+  background-color: #0f5bb5;
+  color: var(--white);
+}
+.btn-instagram{
+  background-color: #e4405f;
+  color: var(--white);
+  padding: 12px 24px;
+}
+.btn-instagram:hover, .btn-instagram:focus, .btn-instagram:active{
+  background-color: #c13584;
+  color: var(--white);
+}
+.hamburger{
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.hamburger .bar{
+  width: 25px;
+  height: 3px;
+  background-color: var(--menu-text-color);
+  border-radius: 2px;
+}
+.hamburger.close .bar:nth-child(2){
+  opacity: 0;
+}
+.hamburger.close .bar:nth-child(1){
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.close .bar:nth-child(3){
+  transform: translateY(-8px) rotate(-45deg);
 }

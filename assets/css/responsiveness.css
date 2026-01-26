@@ -126,6 +126,9 @@
     height: 24px;
     margin-right: 10px;
   }
+  .timeline-list .text-end {
+    text-align: left;
+  }
 }
 @media screen and (max-width: 480px) {
   .hero-section {

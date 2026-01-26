@@ -10,6 +10,15 @@
   --white: #ffffff;
   --dark: #000000;
   --dark-gray: #1f2937;
+  --body-bg-color: #f1fafe;
+  --timeline-gap: 2rem;
+  --timeline-content-gap: 1.5rem;
+  --timeline-entry-bg-color: #fff;
+  --timeline-entry-padding: 2rem;
+  --timeline-title-font-size: 2rem;
+  --timeline-content-font-size: 1.2rem;
+  --timeline-circle-size: 24px;
+  --timeline-border-width: 5px;
   --text48: 48px;
   --text36: 36px;
   --text24: 24px;
@@ -513,4 +522,102 @@ footer p {
 }
 .hamburger.close .bar:nth-child(3){
   transform: translateY(-8px) rotate(-45deg);
+}
+.w-fit{
+  width: fit-content !important;
+}
+
+
+
+#timeline-section { padding: 4rem 0; }
+
+/* The container stays positioned for the spine & markers */
+#timeline {
+  position: relative;
+}
+
+/* LIST is the flex column now (restores gap + align-self behaviour) */
+.timeline-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--timeline-gap);
+}
+
+/* centre spine uses token; sits behind markers */
+#timeline::before {
+  content: "";
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f1e8cd;
+  z-index: 0;
+}
+
+.timeline-entry {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: var(--timeline-entry-padding);
+  background: var(--timeline-entry-bg-color);
+  width: 45%;
+  box-shadow: 0px 15px 30px -25px rgba(0,0,0,0.5);
+}
+
+/* marker anchored to #timeline (intentional) */
+.timeline-entry::after {
+  content: "";
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border-width: var(--timeline-border-width);
+  border-style: solid;
+  border-color: var(--primary-color);
+  background: var(--timeline-entry-bg-color);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1; /* above spine */
+}
+
+.timeline-entry .title { font: 600 var(--text24) var(--font); color: var(--primary-color); }
+.timeline-entry h5 { font: 600 var(--text24) var(--font); }
+.timeline-entry p { font: 400 var(--text16) var(--font); color: #5b6574;}
+.timeline-entry svg { color: var(--primary-color); order: -1; }
+
+/* Desktop zig-zag: even items to the right */
+@media (min-width: 768px) {
+  .timeline-list .timeline-entry:nth-child(even) {
+    align-self: flex-end;
+  }
+}
+
+/* Mobile: move spine to start and widen entries */
+@media (max-width: 767px) {
+  #timeline::before {
+    left: 0;
+    transform: none;
+  }
+  .timeline-entry {
+    width: 90%;
+    align-self: flex-end;
+  }
+  .timeline-entry::after {
+    left: calc(-1 * ((var(--timeline-circle-size) / 2) + (var(--timeline-border-width) / 2)));
+    transform: none;
+  }
+}
+
+/* Accessibility helper for the hidden heading */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
 }

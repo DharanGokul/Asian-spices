@@ -211,8 +211,8 @@ p.section-description {
   font: 400 var(--text16) var(--font);
   color: #4a5565;
 }
-.bg-primary {
-  background-color: var(--primary-color) !important;
+.bg-primary-light {
+  background-color: var(--primary-light) !important;
 }
 .feature-box:hover {
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
@@ -375,4 +375,48 @@ footer p {
 }
 .location-card .card-title{
   font-size: var(--text24);
+}
+.contact-form h4{
+  font: 600 var(--text24) var(--font);
+  color: var(--primary-color);
+  margin-bottom: 16px;
+}
+.contact-form .form-control, .contact-form .form-select{
+  border-radius: 8px;
+  font: 400 var(--text14) var(--font);
+  height: 51px;
+  background-color: var(--white);
+  border: 1px solid #d1d5dc;
+  padding: 12px 16px;
+}
+.contact-form textarea.form-control{
+  height: 150px;
+  resize: vertical;
+  background-color: var(--white);
+  border: 1px solid #d1d5dc;
+  border-radius: 8px;
+  font: 400 var(--text14) var(--font);
+  padding: 12px 16px;
+}
+.contact-form .form-control:focus, .contact-form .form-select:focus, .contact-form textarea.form-control:focus{
+  box-shadow: none;
+  border: 2px solid var(--primary-color);
+}
+::placeholder{
+  color: #9ca3af !important;
+  font-size: var(--text16);
+  opacity: 1 !important;
+}
+.contact-details p, .contact-details a{
+  color: #4a5565;
+  font: 400 var(--text16) var(--font);
+}
+.info-section{
+  border: 1px solid #ccdfce;
+  border-radius: 10px;
+  background-color: var(--secondary-light);
+}
+.info-section h4{
+  font: 600 var(--text20) var(--font);
+  color: var(--secondary-color);
 }

@@ -112,36 +112,42 @@
             <div class="info-section p-3">
                 <h4 class="text-secondary">24-Hour Response Commitment</h4>
                 <p>We are committed to responding to all business inquiries within 24 hours during business days.</p>
+              </div>
             </div>
-          </div>
-          <div class="col-lg-8 col-md-6">
-            <div class="bg-gray rounded-3 contact-form p-4">
+            <div class="col-lg-8 col-md-6">
+              <div class="bg-gray rounded-3 contact-form p-4">
                 <h4>Send Us a Message</h4>
-                <form action="">
+                <form id="contactForm" action="contact-form.php" method="POST">
+                  <div id="success-message" class="alert alert-success mt-3" style="display: none;"></div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="name" class="form-label">Full Name *</label>
-                            <input type="text" class="form-control" id="name" placeholder="Your Name" />
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" />
+                            <div class="invalid-feedback" id="name-error"></div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="email" class="form-label">Email *</label>
-                            <input type="email" class="form-control" id="email" placeholder="Your Email" />
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" />
+                            <div class="invalid-feedback" id="email-error"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="companyName" class="form-label">Company Name *</label>
-                            <input type="text" class="form-control" id="companyName" placeholder="Your Company" />
+                            <input type="text" class="form-control" id="companyName" name="companyName" placeholder="Your Company" />
+                            <div class="invalid-feedback" id="companyName-error"></div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="phone" class="form-label">Phone Number</label>
-                            <input type="tel" class="form-control" id="phone" placeholder="Your Phone Number" />
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Phone Number" />
+                            <div class="invalid-feedback" id="phone-error"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="country" class="form-label">Country *</label>
-                            <input type="text" class="form-control" id="country" placeholder="Your Country" />
+                            <input type="text" class="form-control" id="country" name="country" placeholder="Your Country" />
+                            <div class="invalid-feedback" id="country-error"></div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="inquiry-type" class="form-label">Inquiry Type *</label>
@@ -154,11 +160,12 @@
                                 <option value="general-inquiry">General Inquiry</option>
                                 <option value="press-media">Press/Media</option>
                             </select>
+                            <div class="invalid-feedback" id="inquiry-type-error"></div>
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" rows="4" placeholder="Tell us about your requirements..."></textarea>
+                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Tell us about your requirements..."></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary w-100"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-2" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>Send Message</button>
                     <p class="opacity-50 text-center mt-4">* Required fields. We respect your privacy and will never share your information.</p>

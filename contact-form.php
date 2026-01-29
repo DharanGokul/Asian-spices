@@ -138,8 +138,18 @@ function sendSMTPEmail($to, $subject, $htmlMessage, $smtpConfig) {
             error_log("SMTP Debug: STARTTLS response - " . trim(end($responses)));
         }
 
-        // Re-establish SSL connection
-        if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+        // Re-establish SSL connection with certificate verification disabled for local development
+        // For production, you should verify certificates
+        $cryptoMethod = defined('STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT') 
+            ? STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT 
+            : STREAM_CRYPTO_METHOD_TLS_CLIENT;
+        
+        // Disable certificate verification for Gmail (local development only)
+        stream_context_set_option($socket, 'ssl', 'verify_peer', false);
+        stream_context_set_option($socket, 'ssl', 'verify_peer_name', false);
+        stream_context_set_option($socket, 'ssl', 'allow_self_signed', true);
+        
+        if (!stream_socket_enable_crypto($socket, true, $cryptoMethod)) {
             if ($debug) {
                 error_log("SMTP Debug: TLS handshake failed");
             }
@@ -220,8 +230,16 @@ function sendSMTPEmail($to, $subject, $htmlMessage, $smtpConfig) {
     // Close connection
     fclose($socket);
 
-    // Check if email was sent successfully
-    $success = strpos(end($responses), '250') === 0;
+    // Check if email was sent successfully by looking at the email sent response
+    // The email sent response should contain "250 2.0.0 OK" after we send the final dot
+    $success = false;
+    foreach ($responses as $response) {
+        if (strpos($response, '250 2.0.0 OK') !== false) {
+            $success = true;
+            break;
+        }
+    }
+    
     if ($debug) {
         error_log("SMTP Debug: Email sending " . ($success ? 'successful' : 'failed'));
     }

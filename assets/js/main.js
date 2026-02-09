@@ -192,3 +192,46 @@ function isValidPhone(phone) {
   const phoneRegex = /^[\+]?[1-9][\d\s\-\(\)]{7,}$/;
   return phoneRegex.test(phone);
 }
+
+// Count Animation for statistics
+document.addEventListener('DOMContentLoaded', function() {
+  const successCountRows = document.querySelectorAll('.success-count');
+  let hasAnimated = false;
+
+  const animateCounters = () => {
+    if (hasAnimated) return;
+    hasAnimated = true;
+
+    const countElements = document.querySelectorAll('.success-count h1');
+    countElements.forEach(element => {
+      const target = parseInt(element.textContent.replace(/\D/g, ''));
+      const suffix = element.textContent.replace(/\d/g, '');
+      let current = 0;
+      const increment = Math.ceil(target / 50);
+      const duration = 2000; // 2 seconds
+      const stepTime = duration / (target / increment);
+
+      const counter = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(counter);
+        }
+        element.textContent = current + suffix;
+      }, stepTime);
+    });
+  };
+
+  // Use Intersection Observer to trigger animation when section is in view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !hasAnimated) {
+        animateCounters();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  successCountRows.forEach(row => {
+    observer.observe(row);
+  });
+});

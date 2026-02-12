@@ -9,6 +9,16 @@ hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('close');
 });
 
+const header = document.getElementById("mainHeader");
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY > 0) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+});
+
 // Contact form validation
 document.addEventListener('DOMContentLoaded', function() {
   const contactForm = document.getElementById('contactForm');

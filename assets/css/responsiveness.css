@@ -89,7 +89,7 @@
     text-align: center;
   }
   .hero-content h1.display-4 {
-    font: 600 var(--text24) var(--font);
+    font: 600 var(--text26) var(--font);
   }
   footer h5,
   .hero-content h1.display-4,
@@ -117,7 +117,7 @@
     text-align: center;
   }
   .section-title {
-    font: 600 var(--text20) var(--font);
+    font: 600 var(--text24) var(--font) !important;
     text-align: center;
     justify-content: center;
   }

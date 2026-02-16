@@ -21,6 +21,7 @@
   --timeline-border-width: 5px;
   --text48: 48px;
   --text36: 36px;
+  --text26: 26px;
   --text24: 24px;
   --text20: 20px;
   --text16: 16px;
@@ -640,6 +641,9 @@ footer p {
   .common-section .section-title svg{
     margin-top: 10px;
   }
+  h2.section-title, .common-section .section-title {
+    font: 600 var(--text24) var(--font);
+  }
 }
 
 /* Mobile: move spine to start and widen entries */
@@ -658,6 +662,17 @@ footer p {
         ((var(--timeline-circle-size) / 2) + (var(--timeline-border-width) / 2))
     );
     transform: none;
+  }
+  .quick-links li a{
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+  }
+  .quick-links li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 
